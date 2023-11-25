@@ -109,7 +109,7 @@ async function login() {
 
 const menu = async () => {
 	const dataAccount = await login();
-	await banner();
+	banner();
 	console.log(`Hi, ${G}${dataAccount[0]}${W}`)
 	console.log(`Email : ${G}${dataAccount[1]}${W}`)
 	console.log(`Phone : ${G}${dataAccount[2]}${W}`)
