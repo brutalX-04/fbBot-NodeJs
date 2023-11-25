@@ -23,7 +23,7 @@ node main.js
 | ---------------- | ------- | ------------------ | -------------- |
 | Kali Linux       | -       | :green_circle:     | 20.9.0         |
 |                  |         |                    |                |
-| Termux           | 0.118.0 | :green_circle:     | 3.2.0          |
+| Termux           | 0.118.0 | :green_circle:     | 20.2.0         |
 
 
 <h3 align="center">
