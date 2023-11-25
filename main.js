@@ -3,7 +3,6 @@ const readline = require("readline");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs/promises")
-const fss = require('fs');
 const { spawn } = require('child_process');
 
 
@@ -242,10 +241,10 @@ async function commentMasal(url, textComment) {
 		const cookies = await fs.readFile('Data/.cookie.txt');
 		const get = await axios.get(url, { 
 			headers: {
+				"content-type": "application/x-www-form-urlencoded",
 				'Cookie': cookies
 			}
 		});
-		fss.writeFileSync('result.txt', get.data+'\n\n\n', { flag: 'a' });
 
 		const response = cheerio.load(get.data);
 		const section = response('div[id="objects_container"]');
