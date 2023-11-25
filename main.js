@@ -280,7 +280,7 @@ async function commentMasal(url, textComment) {
 			const url_a = response(aLink);
 			const textLink = url_a.text();
 			if (textLink.includes('See more stories') || textLink.includes('Lihat Berita Lain')) {
-				links = 'https://mbasic.facebook.com/' + url_a.attr('href');
+				links = 'https://mbasic.facebook.com' + url_a.attr('href');
 			}
 		}
 		commentMasal(links, textComment);
