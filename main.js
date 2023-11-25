@@ -338,6 +338,7 @@ async function sendComment(url, name, textComment) {
 
 		} catch {
 			process.stdout.write(`\r${R}Failled Send Comment${W}\n`);
+			console.log('-'.repeat(32));
 
 		};
 
