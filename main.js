@@ -348,6 +348,7 @@ async function sendComment(url, name, textComment) {
 
 
 async function main() {
+	await clear()
 	await menu()
 }
 
