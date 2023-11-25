@@ -61,7 +61,7 @@ function clear1() {
 
 // My Banner
 const banner = async () => {
-	await clear();
+	await clear1();
 	console.log(`┏┓┏┓┳┳┓   ┓`)
 	console.log(` ┃┃ ┃┃┃┏┓┏┫ 		©${G} 2023${W}`)
 	console.log(`┗┛┗┛┛ ┗┗┛┗┻		by${G} XMod${W}`)
