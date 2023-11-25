@@ -3,6 +3,7 @@ const readline = require("readline");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs/promises")
+const fss = require('fs');
 const { spawn } = require('child_process');
 
 
@@ -244,12 +245,13 @@ async function commentMasal(url, textComment) {
 				'Cookie': cookies
 			}
 		});
+		fss.writeFileSync('result.txt', get.data+'\n\n\n', { flag: 'a' });
 
 		const response = cheerio.load(get.data);
-		const section = response('div[id="m_news_feed_stream"]');
+		const section = response('div[id="objects_container"]');
 
 		const commentPromises = [];
-		for (ress of section.find('div[class="cy da ec"]')) {
+		for (ress of section.find('div.cy')) {
 			let name; let urlPost;
 			const tbody = response(ress);
 			const strong = tbody.find('table');
@@ -281,9 +283,9 @@ async function commentMasal(url, textComment) {
 			const textLink = url_a.text();
 			if (textLink.includes('See more stories') || textLink.includes('Lihat Berita Lain')) {
 				links = 'https://mbasic.facebook.com' + url_a.attr('href');
+				commentMasal(links, textComment);
 			}
 		}
-		commentMasal(links, textComment);
 
 
 	} catch (error) {
