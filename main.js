@@ -60,12 +60,34 @@ function clear1() {
 
 
 // My Banner
-const banner = () => {
-	clear();
+const banner = async () => {
+	await clear();
 	console.log(`┏┓┏┓┳┳┓   ┓`)
 	console.log(` ┃┃ ┃┃┃┏┓┏┫ 		©${G} 2023${W}`)
 	console.log(`┗┛┗┛┛ ┗┗┛┗┻		by${G} XMod${W}`)
 	console.log('-'.repeat(32))
+}
+
+
+// Menu Utama
+const menu = async () => {
+	const dataAccount = await login();
+	await banner();
+	console.log(`Hi, ${G}${dataAccount[0]}${W}`)
+	console.log(`Email : ${G}${dataAccount[1]}${W}`)
+	console.log(`Phone : ${G}${dataAccount[2]}${W}`)
+	console.log('-'.repeat(32))
+	console.log(`Menu Tools : `)
+	console.log(`1. Bot Comment Target ${G}	ON ${W}`)
+	console.log(`2. Bot Comment Massal ${G}	ON ${W}`)
+	const pilih = await Input('Pilih : ');
+	if (pilih == "1") {
+		await commentTarget();
+	};
+	if (pilih == "2") {
+		await setCommentMasal();
+	};
+	rl.close();
 }
 
 
@@ -110,27 +132,6 @@ async function login() {
 		await fs.unlink('Data/.cookie.txt');
 		process.exit();
 	};
-}
-
-
-const menu = async () => {
-	const dataAccount = await login();
-	banner();
-	console.log(`Hi, ${G}${dataAccount[0]}${W}`)
-	console.log(`Email : ${G}${dataAccount[1]}${W}`)
-	console.log(`Phone : ${G}${dataAccount[2]}${W}`)
-	console.log('-'.repeat(32))
-	console.log(`Menu Tools : `)
-	console.log(`1. Bot Comment Target ${G}	ON ${W}`)
-	console.log(`2. Bot Comment Massal ${G}	ON ${W}`)
-	const pilih = await Input('Pilih : ');
-	if (pilih == "1") {
-		await commentTarget();
-	};
-	if (pilih == "2") {
-		await setCommentMasal();
-	};
-	rl.close();
 }
 
 
