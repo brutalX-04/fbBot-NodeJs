@@ -38,8 +38,8 @@ function Input(argument) {
 
 
 // Clear Terminal
-function clear() {
-  const child = spawn('clear', [], { stdio: 'inherit' });
+async function clear() {
+  const child = await spawn('clear', [], { stdio: 'inherit' });
 
   child.on('error', (error) => {
     console.error(`Error: ${error}`);
@@ -50,6 +50,12 @@ function clear() {
       console.error(`Clear command exited with code ${code}`);
     }
   });
+}
+
+
+// Clear Terminal
+function clear1() {
+  process.stdout.write('\x1B[2J\x1B[0f')
 }
 
 
