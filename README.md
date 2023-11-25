@@ -8,7 +8,7 @@ git clone https://github.com/XMod-04/fbBot-NodeJs
 cd fbBot-NodeJs
 node main.js
 ```
-- Kali Linux-Installations
+- Kali Linux-Installations & Running
 ```python
 sudo apt install nodejs
 npm install cheerio
