@@ -241,7 +241,7 @@ async function commentMasal(url, textComment) {
 		const cookies = await fs.readFile('Data/.cookie.txt');
 		const get = await axios.get(url, { 
 			headers: {
-				"content-type": "application/x-www-form-urlencoded",
+				"Content-Type": "application/x-www-form-urlencoded",
 				'Cookie': cookies
 			}
 		});
